@@ -18,17 +18,17 @@ for combo in combos:
             }
         )
         data = response.json()
-        
+
         if "errors" in data:
-            for error in data["errors"]:
-                if error["message"] == "Too many requests":
-                    print("Too many requests")
-                    time.sleep(5)
-                    continue
-        break
-    
-    if len(data.get('data', [])) == 0:
+            if any(error["message"] == "Too many requests" for error in data["errors"]):
+                print("Too many requests")
+                time.sleep(5)
+                continue
+        else:
+            break 
+
+    if "data" in data and len(data["data"]) == 0:
         with open("unclaimed.txt", "a") as f:
             f.write(user + "\n")
             f.flush()
-            print("UNCLAIMED!")
+        print("UNCLAIMED!")
