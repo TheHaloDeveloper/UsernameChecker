@@ -30,4 +30,5 @@ for combo in combos:
     if len(data.get('data', [])) == 0:
         with open("unclaimed.txt", "a") as f:
             f.write(user + "\n")
+            f.flush()
             print("UNCLAIMED!")
