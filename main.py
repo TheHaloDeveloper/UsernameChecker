@@ -3,7 +3,7 @@ import requests
 import time
 
 chars = "abcdefghijklmnopqrstuvwxyz1234567890"
-combos = itertools.product(chars, repeat=4)
+combos = itertools.product(chars, repeat=5)
 
 for combo in combos:
     user = ''.join(combo)
