@@ -3,8 +3,8 @@ import requests
 import time
 import random
 
-chars = "abcdefghijklmnopqrstuvwxyz1234567890"
-chars = ''.join(random.sample(s,len(s)))
+s = "abcdefghijklmnopqrstuvwxyz"
+chars = ''.join(random.sample(s, len(s)))
 combos = itertools.product(chars, repeat=6)
 
 for combo in combos:
